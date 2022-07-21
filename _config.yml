@@ -23,7 +23,7 @@ timezone: Asia/Seoul
 
 title: Gyuhyeon # the main title
 
-tagline: A text-focused Jekyll theme   # it will display as the sub-title
+tagline: Backend developer, Senior student # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
@@ -80,10 +80,10 @@ theme_mode: [dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn: '/'
+img_cdn: 'https://hgyuhyeon.github.io'
 
 # the avatar on sidebar, support local or CORS resources
-avatar: 'commons/avatar.jpg'
+avatar: '/commons/avatar.jpg'
 
 # boolean type, the global switch for ToC in posts.
 toc: true
