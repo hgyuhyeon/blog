@@ -5,6 +5,7 @@ date:   2022-07-21 22:06:30 +9
 categories: [Troubleshooting]
 tags: [gunicorn]
 render_with_liquid: false
+# pin: true
 ---
 ### gunicorn worker가 드러눕는다.
 
