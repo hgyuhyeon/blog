@@ -1,0 +1,20 @@
+---
+title:  "ListView에 Adapter 적용"
+author: Gyuhyeon Hwang
+date:   2021-05-21 20:18:30 +9
+categories: [Troubleshooting]
+tags: [Android]
+render_with_liquid: false
+---
+### Listview에 Adapter가 제대로 적용이 안될 때
+
+초반에 그냥 1개만 선언하고<br/>
+Onresponse 로 json 파일을 List에 전부 넣었다면<br/>
+try문 끝나기 전에 notifyDataSetChanged(); 실행!!<br/>
+그러면 잘 적용된다
+
+<br/>
+
+외부 함수로 빼서 리턴하기는 불가능하다. <br/>
+이유는 파악 못했는데 둘이 따로따로 실행되면서 리턴을 못하더라 <br/>
+내가 리턴위치를 잘못 잡았을 확률이 크지만.. 위의 방법이 더 깔끔한듯.

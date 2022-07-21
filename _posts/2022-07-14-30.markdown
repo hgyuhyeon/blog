@@ -1,0 +1,13 @@
+---
+title:  "도커 이미지 전체 삭제"
+author: Gyuhyeon Hwang
+date:   2022-07-14 19:58:30 +9
+categories: [Troubleshooting]
+tags: [Docker]
+render_with_liquid: false
+---
+### 생성된 이미지를 전부 삭제하고 싶을 때
+
+`docker rmi $(docker images -q)`
+
+위의 명령어를 실행한다. 단, 이미지를 지우기 전에 컨테이너를 전부 삭제해야 한다.

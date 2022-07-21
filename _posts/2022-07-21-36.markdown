@@ -1,0 +1,25 @@
+---
+title:  "gunicorn worker timeout"
+author: Gyuhyeon Hwang
+date:   2022-07-21 22:06:30 +9
+categories: [Troubleshooting]
+tags: [gunicorn]
+render_with_liquid: false
+---
+### gunicorn worker가 드러눕는다.
+
+웹 서버를 실행하다 보면, WORKER TIMEOUT을 마주하게 된다.
+
+실행 시간이 너무 오래 걸려서, 자동으로 끝내버린다.
+
+나의 경우 AI모델을 실행해야 해서 특히 더 오래 걸렸다(거의 1분).
+
+그러나 gunicorn에서 기본적으로 제공하는 timeout은 30초.
+
+해결 방법은, gunicorn을 실행할 때 -t옵션을 주는 것이다.
+
+```
+gunicorn --bind 0.0.0.0:8000 server.wsgi:application -t 150
+```
+
+나는 장고 서버를 gunicorn을 이용해 돌렸는데, 저렇게 마지막에 -t옵션을 주고 원하는 초를 설정하면 된다.

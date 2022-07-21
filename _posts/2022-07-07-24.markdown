@@ -1,0 +1,58 @@
+---
+title:  "Build docker image"
+author: Gyuhyeon Hwang
+date:   2022-07-07 18:56:30 +9
+categories: [Troubleshooting]
+tags: [Docker]
+render_with_liquid: false
+---
+### 도커 이미지 빌드하기
+
+도커 튜토리얼에서 제공하는 방법이다.
+
+#### 1. 깃 리포지토리 클론하거나 본인이 이미지를 만들고자 하는 리포로 이동.
+클론해서 run 하는 명령어<br/>
+`docker run --name repo git clone asdf.git`
+
+#### 2. 도커파일 작성
+예시는 내가 작성한 Django 서버를 돌리는 도커파일이다.
+```
+FROM ubuntu:22.04
+# EC2의 우분투 버전과 통일
+
+RUN apt-get -y update
+RUN apt-get install -y python3-pip
+# pip 설치
+
+RUN apt-get install libmysqlclient-dev -y
+# for MySQLclient (데이터베이스로 mysql을 사용하지 않으면 빼도 괜찮다.)
+
+RUN pip3 install --upgrade pip
+# pip 업데이트
+
+# 컨테이너 내부에 config(설정파일)가 들어갈 폴더 생성
+RUN mkdir /config
+ADD /config/requirements.txt /config/
+RUN pip3 install --no-cache-dir -r /config/requirements.txt
+# requirements.txt 실행
+
+### 작업 디렉토리 ###
+# Django 소스코드가 들어갈 폴더 생성
+RUN mkdir /src;
+
+# 작업 디렉토리 src/server/server(manage.py 있는 곳)로 변경
+WORKDIR /src/server/server
+
+# 장고 서버 run
+CMD ["python manage.py 8000:8000 runserver"]
+```
+
+#### 3. 이미지 빌드
+`docker build -t {이미지 이름} .`
+
+#### 4. 도커 컨테이너 실행
+`docker run -d -p {들어오는 포트번호}:{이어줄 포트번호} \ --name {컨테이너 이름} {이미지 이름}`
+
+#### 5. 도커 허브에 공유
+`docker tag {이미지 이름} {도커 아이디}/{이미지 이름}`
+`docker push {도커 아이디}/{이미지 이름}`

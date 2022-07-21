@@ -1,0 +1,17 @@
+---
+title:  "gitignore 적용 안될 때"
+author: Gyuhyeon Hwang
+date:   2021-11-15 00:56:30 +9
+categories: [Troubleshooting]
+tags: [Git]
+render_with_liquid: false
+---
+### gitignore 적용 안됨
+
+캐시를 삭제하면 된다.
+
+`git rm -r --cached .`
+
+`git add .`
+
+`git commit -m "gitignore 재적용"`

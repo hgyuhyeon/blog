@@ -1,0 +1,20 @@
+---
+title:  "ERROR 1175"
+author: Gyuhyeon Hwang
+date:   2020-06-10 21:03:58 +9
+categories: MySQL
+categories: [Troubleshooting]
+tags: [MySQL]
+render_with_liquid: false
+---
+
+### DELETE나 UPDATE시 안전 모드가 작동된 것이다.
+`Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column.  To disable safe mode, toggle the option in Preferences -> SQL Editor and reconnect.`
+
+#### 1. SQL 명령어를 이용한 안전 모드 해제
+```SQL
+SET SQL_SAFE_UPDATES = 0;
+```
+
+#### 2. MySQL Workbench를 이용한 안전 모드 해제
+* Edit -> Preferences -> SQL Editor -> Safe Updates 체크박스의 체크 해제

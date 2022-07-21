@@ -1,0 +1,27 @@
+---
+title:  "Custom class import하기"
+author: Gyuhyeon Hwang
+date:   2020-11-29 19:34:12 +9
+categories: [Troubleshooting]
+tags: [Java, Tomcat, JSP]
+render_with_liquid: false
+---
+### 직접 정의한 Class를 tomcat에서 import하는 방법 
+
+1. /var/lib/tomcat8/webapps 폴더 이동
+
+2. 원하는 폴더에 WEB-INF/classes 폴더 생성
+
+3. classes 폴더 안에 사용자 정의 클래스 파일 넣기
+    * java파일일 경우 javac 이용하여 클래스로 컴파일
+    * 패키지가 있을 경우 classes 폴더 안에 mypkg/myclass.class처럼 패키지 폴더 생성
+
+4. import 방법
+```jsp
+<%@ page import = "mypkg.myclass" %> <!-- 패키지가 있을 때 -->
+<%@ page import = "myclass" %> <!-- 패키지가 없을때 -->
+```
+
+5. 참고한 블로그
+* [kmj1107.tistory.com](https://kmj1107.tistory.com/entry/jsp%EC%97%90%EC%84%9C-%EC%9E%90%EA%B8%B0%EA%B0%80-%EB%A7%8C%EB%93%A0-class-import-%ED%95%98%EA%B8%B0)
+* [jang8584.tistory.com](https://jang8584.tistory.com/72)

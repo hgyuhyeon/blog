@@ -1,0 +1,74 @@
+---
+title:  "MySQL ERROR 2002"
+author: Gyuhyeon Hwang
+date:   2022-07-21 19:56:30 +9
+categories: [Troubleshooting]
+tags: [MySQL, Docker, docker-compose, Django]
+render_with_liquid: false
+---
+### docker-compose MySQL 서버 접속이 안 될때(Django)
+
+예전에 해결했으나... 필요할 것 같아서 업로드
+
+docker-compose를 사용하면 기본적으로 여러 컨테이너를 사용하게 된다.
+
+```
+db:
+    image: mysql:8.0.22
+    container_name: my01
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/:/docker-entrypoint-initdb.d/
+    environment: 
+      MYSQL_ROOT_PASSWORD: "8de"
+      MYSQL_DB: "8dedb"
+    platform: linux/x86_64
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 10
+      start_period: 30s
+
+server:
+    build: 
+      context: ./server
+      dockerfile: ./Dockerfile
+    container_name: dg01
+    working_dir: /server
+    command: sh entrypoint.sh
+    volumes:
+      - ./server/:/server
+    expose:
+      - "8000"
+    depends_on:
+      db:
+        condition: service_healthy
+```
+
+설명을 위해 가지고 온 코드.
+
+나는 장고를 돌리는 server와 데이터베이스를 돌리는 db 컨테이너를 별개로 사용했다.
+
+이 때 docker-compose 관계에서 데이터베이스의 host는 db가 된다.
+
+그렇기 때문에, settings.py에서 
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '8dedb',
+        'USER': 'root',
+        'PASSWORD': '8de',
+        'HOST': 'db',
+        'PORT': '3306',
+    }
+}
+```
+
+데이터베이스의 호스트를 db로 바꾸어주어야 한다.
+
+[참고한 블로그](https://vixxcode.tistory.com/142)

@@ -1,0 +1,28 @@
+---
+title:  "Ubuntu 환경에서 jsp MariaDB 서버세팅"
+author: Gyuhyeon Hwang
+date:   2020-11-24 20:29:28 +9
+categories: [Troubleshooting]
+tags: [Ubuntu, tomcat, JSP, MariaDB]
+render_with_liquid: false
+---
+### jsp 서버 세팅하기
+Ubuntu 18.04, apache tomcat, mariadb, Naver cloud server
+
+
+**1. tomcat 설치**
+### `apt-get install tomcat8`
+* {ip주소}:8080 하면 index.jsp와 함께 It works 창이 나타남
+* 만약 안 나타난다면? -> 호스팅 서버의 8080포트를 열어줬나 확인하기(네이버 클라우드 서버의 경우 ACG 설정)
+
+
+**2. mariadb 설치**
+### `apt-get install mariadb-server`
+* mariadb는 mysql과의 API가 호환된다. 즉 MySQL에서 사용하던 명령어 그대로 사용 가능하다.
+* 외부접속 열 필요 있으면 [MySQL 외부 접속 여는 법](https://hgyuhyeon.github.io/mysql/2020/06/11/4.html) 참고.
+
+
+**3. 버전에 따라 별도의 mysql driver가 필요할 수 있다.**
+* /usr/share/tomcat8/lib 밑에 넣으면 돌아감
+
+4. 개발 시작!

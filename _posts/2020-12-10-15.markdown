@@ -1,0 +1,15 @@
+---
+title:  "Modify directory owner"
+author: Gyuhyeon Hwang
+date:   2020-12-10 20:29:30 +9 
+categories: [Troubleshooting]
+tags: [Ubuntu, shell]
+render_with_liquid: false
+---
+### 파일/폴더 소유권자를 변경하는 명령
+
+#### `chown {소유권자}:{그룹식별자} {소유권을 변경할 디렉토리명}`
+#### ex: `chown tomcat8 room`
+
+* 참고한 블로그
+    * [araikuma.tistory.com](https://araikuma.tistory.com/117)

@@ -1,0 +1,31 @@
+---
+title:  "docker pull access denied"
+author: Gyuhyeon Hwang
+date:   2022-07-08 18:56:30 +9
+categories: [Troubleshooting]
+tags: [Docker]
+render_with_liquid: false
+---
+### 도커 허브에서 이미지 pull을 할 수 없을 때 2
+
+도커 이미지를 pull하려는데 로그인을 요구한다길래
+<br/>
+`docker login`
+<br/>
+명령어 이용해서 로그인을 완료했음에도 불구하고
+
+docker: error response from daemon: pull access denied for...
+<br/>
+이게 뜨면서 자꾸 로그인을 하라고 한다.
+
+<br/>
+
+이럴 때는
+
+`docker pull {이미지명}`
+
+이 아니라
+
+`docker pull {사용자명}/{이미지명}`
+
+으로 하면 잘 된다. 아무래도 태그를 통해 pull할 이미지를 구분하는 듯.
