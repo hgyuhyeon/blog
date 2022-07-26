@@ -1,0 +1,34 @@
+---
+title:  "docker compose command에서 나타나는 쉘 스크립트 오류"
+author: Gyuhyeon Hwang
+date:   2022-07-21 22:06:30 +9
+categories: [Troubleshooting]
+tags: [GitHub, Docker]
+render_with_liquid: false
+# pin: true
+---
+## command "install/r" not found
+GitHub에서 소스코드를 내려받았는데, 이런 오류와 함께 쉘 스크립트 파일이 실행되지 않는다면?
+
+줄바꿈이 문제인 것이다.
+
+윈도우는 CRLF를 사용하고, 맥/리눅스는 LF를 사용한다.
+
+`lf will be replaced by crlf in entrypoint.sh`
+
+아마 이런 경고 메시지도 같이 봤을 것이다.
+
+해결 방법은, autocrlf를 사용할 수도 있지만, 솔직히 나랑 팀원들은 이 명령어를 실행시켰을 때 별 차이가 없었다...;;
+
+왜냐하면 이렇게 되더라도 결국 팀원들 컴퓨터는 윈도우고, 직접 파일의 줄 바꿈 설정을 LF으로 변경한 뒤(Visual Studio Code에서는 오른쪽 아래에서 변경할 수 있다), 일일히 줄 바꿈을 다시 해주어야 정상적으로 실행됐기 때문이다.
+
+그래서 우리는 쉘 스크립트 파일을 없애고, docker-compose의 command에 그대로 명령어를 집어넣는 것으로 해결했다.
+
+```yml
+    command: bash -c "
+        yarn install &&
+        yarn build"
+    # command: sh entrypoint.s
+```
+
+변경한 모습.

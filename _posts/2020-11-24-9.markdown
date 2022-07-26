@@ -2,8 +2,8 @@
 title:  "Ubuntu 환경에서 jsp MariaDB 서버세팅"
 author: Gyuhyeon Hwang
 date:   2020-11-24 20:29:28 +9
-categories: [Troubleshooting]
-tags: [Ubuntu, tomcat, JSP, MariaDB]
+categories: [Setting]
+tags: [Ubuntu, Tomcat, JSP, MariaDB]
 render_with_liquid: false
 ---
 ### jsp 서버 세팅하기
