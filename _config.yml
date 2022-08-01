@@ -21,12 +21,12 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Gyuhyeon # the main title
+title: Qhyeony # the main title
 
 tagline: Backend developer, Senior student # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
+  Gyuhyeon's Tech blog
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://hgyuhyeon.github.io'

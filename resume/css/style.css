@@ -9,13 +9,13 @@ font-family: 'Noto Serif KR', serif;
 
 body {margin: 0; padding: 0;}
 
-main {width: 100%; padding: 40px 20px; background-color: #0e192f;}
+main {width: 100%; padding: 40px 120px; background-color: #0e192f;}
 
 .name,
 .message,
-.info {font-family: 'Noto Serif KR', serif; margin: 0px 80px;}
+.info {font-family: 'Noto Serif KR', serif; margin: 0px 80px; line-height: 1.5em;}
 
-.name {color:#F1F6F9; letter-spacing: 0.08em; font-size: 30px;}
+.name {color:#F1F6F9; letter-spacing: 0.08em; font-size: 26px;}
 
 .name .kr {font-family: 'Hahmlet', serif;}
 
@@ -27,17 +27,19 @@ main {width: 100%; padding: 40px 20px; background-color: #0e192f;}
 section {padding: 60px 180px;}
 section:last-child {padding-bottom: 100px;}
 
-.paragraph {height: auto; font-size: 15px; text-align: left; padding: 10px 30px; line-height: 1.7em; font-family: 'Hahmlet', serif;}
-.paragraph ul {padding-left: 10px; margin-bottom: 0;}
-.paragraph li {list-style: ' - ';}
+.paragraph {height: auto; font-size: 15px; text-align: left; padding: 10px 30px; line-height: 2em; font-family: 'Hahmlet', serif;}
+.paragraph ul {padding-left: 17px; margin-bottom: 0;}
+.paragraph li {list-style: square;}
+.paragraph li::marker {color: rgb(179, 200, 218);}
 .paragraph li a {text-decoration: none; color: #7db4b9;}
-.col-lg-6 {margin-bottom: 30px;}
+.col-lg-6, .col-lg-12 {margin-bottom: 30px;}
+.paragraph p {font-size: 13px; color:rgb(100, 100, 100);}
 
 .title {color: #14274E; font-size: 20px; font-family: 'Xanh Mono', monospace; font-weight: bold; margin-bottom: 10px; border-bottom: solid 1px rgb(39, 42, 65); padding-top: 40px;}
 .stitle {color: rgb(75, 75, 75); font-size: 17px;}
 
 .pytitle {text-decoration: none;}
-.pytitle:hover {text-decoration: none; color: #7db4b9;}
+.pytitle:hover {text-decoration: none; color: #827397;}
 
 .date {color:rgb(147, 163, 177); font-size: 13px;}
 
@@ -64,6 +66,8 @@ footer table {width: 100%; text-align: center;}
 footer table td {font-size: 8px; vertical-align: bottom; height:70px}
 
 @media screen and (max-width: 1000px) { /* for ipad */
+    main {padding: 30px 25px;}
+
     .name, .info, .message {margin: 0 30px;}
 
     section {padding: 10px 25px 20px;}
@@ -78,7 +82,7 @@ footer table td {font-size: 8px; vertical-align: bottom; height:70px}
 }
 
 @media screen and (max-width: 600px) { /* for iphone */
-    main {padding: 30px 10px;}
+    main {padding: 30px 20px;}
 
     .name,
     .message,
@@ -105,7 +109,7 @@ footer table td {font-size: 8px; vertical-align: bottom; height:70px}
     .col-lg-6 {margin: 15px auto;}
     .date, .techstack, .url, .url:hover, .award-right span {font-size: 6px;}
 
-    footer {height: 120px; padding: 0px 50px; line-height: 0.9em;}
+    footer {height: 120px; padding: 0px 50px; line-height: 1.5em;}
     nav {height: 90px; padding-top: 15px;}
     nav a, .bfont {font-size: 7px;}
     footer table td {font-size: 6px; vertical-align: bottom; height:30px}

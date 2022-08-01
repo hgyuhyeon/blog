@@ -19,7 +19,7 @@ render_with_liquid: false
 
 해결 방법은, gunicorn을 실행할 때 -t옵션을 주는 것이다.
 
-```
+```sh
 gunicorn --bind 0.0.0.0:8000 server.wsgi:application -t 150
 ```
 
